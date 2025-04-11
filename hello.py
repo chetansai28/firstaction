@@ -4,3 +4,8 @@ import os
 name = os.getenv('INPUT_NAME')  # GitHub Actions passes input like this
 
 print(f"Hello, {name}! Welcome to GitHub Actions.")
+
+if name == "chetan":
+    print ("hello")
+else:
+    print("bye")

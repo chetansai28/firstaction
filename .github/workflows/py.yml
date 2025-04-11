@@ -1,4 +1,4 @@
-name: Python Hello World with Input Variable
+name: Python Hello World with Input Variable and Auto Branch
 
 on:
   push:
@@ -24,7 +24,16 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Create a new branch
+        run: |
+          BRANCH_NAME=new-branch-$(date +%Y%m%d%H%M%S)
+          echo "Branch Name: $BRANCH_NAME"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git checkout -b $BRANCH_NAME
+          git push origin $BRANCH_NAME
+
       - name: Run Python Program with Input Variable
         env:
-          INPUT_NAME: ${{ inputs.name }}  # Pass input to env variable
+          INPUT_NAME: ${{ inputs.name }}
         run: python hello.py
