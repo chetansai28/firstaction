@@ -19,4 +19,4 @@ jobs:
           python-version: '3.9'
 
       - name: Run Python Program
-        run: python hello.py
+        run: hello.py
