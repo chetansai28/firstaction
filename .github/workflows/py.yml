@@ -1,9 +1,12 @@
-name: Python Hello World
+name: Python Hello World with Input Variable
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Enter your Name'
+        required: true
+        default: 'World'
 
 jobs:
   run-python:
@@ -18,5 +21,7 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Run Python Program
+      - name: Run Python Program with Input Variable
+        env:
+          INPUT_NAME: ${{ inputs.name }}  # Pass input to env variable
         run: python hello.py
