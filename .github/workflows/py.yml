@@ -1,6 +1,9 @@
 name: Python Hello World with Input Variable
 
 on:
+  push:
+     branches:
+       - main
   workflow_dispatch:
     inputs:
       name:
